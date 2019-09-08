@@ -6,6 +6,7 @@ bot.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', member => {
+
     var role = member.guild.roles.find('name', "Citoyen");
     member.addRole(role);
 });
@@ -131,5 +132,6 @@ bot.on('message', message => {
             darknetChannel.send(aMessage)
         }
     }
-})
+});
+
 bot.login(process.env.TOKEN);
