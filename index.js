@@ -6,19 +6,15 @@ bot.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', member => {
-    // Ajoute le Rôle "Citoyen" à un nouveau joueur.
     var role = member.guild.roles.find('name', "Citoyen");
     member.addRole(role);
 });
 
 bot.on('message', message => {
-    // Définit les constantes.
     let prefix = "$"
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
-
-    // Liste des Commandes
 
     if (cmd === `${prefix}clear`) {
         if (message.member.roles.get('620250341807489044')) {
@@ -26,7 +22,6 @@ bot.on('message', message => {
             const amount = parseInt(args[0]);
             if (!amount) return message.author.send(`Vous n'avez pas précisé le nombre de messages à supprimer. **Utilisation :** ?clear **[Montant]**`);
             
-            // Supprime le nombre de messages spécifiés.
             message.channel.bulkDelete(amount)
         }
         else
